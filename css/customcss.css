@@ -98,14 +98,15 @@ code {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-
-    max-width: 800px;
+    /*max-width: 800px;*/
     margin-top: 3rem;
+    width: 100%;
+    margin-bottom: 3rem;
 }
 
 .card {
     margin: 1rem;
-    flex-basis: 45%;
+    flex-basis: 20%;
     padding: 1.5rem;
     text-align: left;
     color: inherit;

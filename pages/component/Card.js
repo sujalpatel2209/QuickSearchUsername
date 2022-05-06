@@ -1,7 +1,7 @@
-export default function Card() {
+export default function Card({serverData}) {
     return (
-        <a href="https://nextjs.org/docs" className="card">
-            <h3>Facebook</h3>
+        <a href="#" className="card">
+            <h3>{serverData.service}</h3>
             <p>Available</p>
         </a>
     )
