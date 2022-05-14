@@ -28,12 +28,15 @@ export default function Content({username}) {
  * @param username
  */
 const verifyUsername = (service, username) => {
-    // console.log(process.env.NEXT_PUBLIC_API_URL);
 
-    const checkUrl = process.env.NEXT_PUBLIC_API_URL+service.endpoint.replace('{username}', username);
-
-    // fetch(checkUrl)
-    //     .then(r => console.log(r.json()));
+    // const checkUrl = 'https://api.instantusername.com'+service.endpoint.replace('{username}', username);
+    //
+    //
+    //  fetch(checkUrl)
+    //     .then(r => console.log(r.json()))
+    //     .then((res) => {
+    //        return res;
+    //     });
 
     // console.log(username);
     // console.log('call function', username);
