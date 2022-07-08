@@ -1,43 +1,47 @@
-import Card from "./Card";
 import socials from '../../utils/services.js';
+import {useEffect, useState} from "react";
+import Card from "./Card";
 
-export default function Content({username}) {
+
+const Content = ({username}) => {
+
+    const [resJson, setResJson] = useState([]);
+    let finalArray = [];
+    /**
+     *
+     * @param service
+     * @param username
+     */
+    const verifyUsername = () => {
+        // console.log(service.endpoint.replace('{username}', username);
+        socials.map(async (service, index) => {
+            // console.log(service.endpoint.replace('{username}', username));
+            const checkUrl = 'https://api.instantusername.com' + service.endpoint.replace('{username}', username);
+            await fetchData(checkUrl);
+        })
+    }
+
+    const fetchData = async (checkUrl) => {
+        const res = await fetch(checkUrl)
+        const json = await res.json();
+        finalArray = [...finalArray, json];
+        setResJson(finalArray);
+    }
+
+    useEffect(() => {
+        {
+            username ? verifyUsername() : <></>
+        }
+    }, [username]);
+
     return (
         <div className='grid'>
-            { username !== '' ?
-                socials.map((service, index) => {
-
-                    // Call VerifyUsername Function
-                    verifyUsername(service, username);
-
-                    return (
-                        <Card
-                            key={index}
-                            serverData={service}
-                        />
-                    )
-                }) : <></>
+            {resJson ?
+                resJson.map((response, index) => <Card serverData={response} key={index}/>
+                ) : <></>
             }
         </div>
     );
 }
 
-/**
- *
- * @param service
- * @param username
- */
-const verifyUsername = (service, username) => {
-
-    // const checkUrl = 'https://api.instantusername.com'+service.endpoint.replace('{username}', username);
-    //
-    //
-    //  fetch(checkUrl)
-    //     .then(r => console.log(r.json()))
-    //     .then((res) => {
-    //        return res;
-    //     });
-
-    // console.log(username);
-    // console.log('call function', username);
-}
+export default Content;
