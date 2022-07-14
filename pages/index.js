@@ -1,7 +1,7 @@
-import Main from "./component/Main";
-import Heading from "./component/Heading";
-import Footer from "./component/Footer";
-import Content from "./component/Content";
+import Main from "../component/Main";
+import Heading from "../component/Heading";
+import Footer from "../component/Footer";
+import Content from "../component/Content";
 import {useState} from "react";
 
 export default function Home() {

@@ -2,7 +2,7 @@ export default function Main({username, setInputValue}) {
     return (
         <main>
             <h1 className="title">
-                Quick <a href="/">Username</a> Search!
+                Quick <a href="/pages">Username</a> Search!
             </h1>
 
             <p className="description">
