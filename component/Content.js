@@ -22,7 +22,12 @@ const Content = ({username}) => {
     }
 
     const fetchData = async (checkUrl) => {
-        const res = await fetch(checkUrl);
+        const res = await fetch(checkUrl, {
+            mode: 'cors',
+            headers: {
+                'Access-Control-Allow-Origin':'*'
+            }
+        });
         const json = await res.json();
         finalArray = [...finalArray, json];
         setResJson(finalArray);
